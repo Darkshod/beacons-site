@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DigitalDropX — Premium Digital Products</title>
-  <meta name="description" content="Premium digital products and templates for entrepreneurs." />
+  <title>LAHCEN Digital Products — Beacons Store</title>
+  <meta name="description" content="Premium digital templates and guides for entrepreneurs." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,63 +13,79 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Outfit', sans-serif; background: #050508; color: #fff; overflow-x: hidden; }
-    
     #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
     .content { position: relative; z-index: 1; }
-    
     .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px; position: relative; }
     .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: linear-gradient(transparent, #050508); pointer-events: none; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); padding: 12px 28px; border-radius: 100px; font-size: 11px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 48px; backdrop-filter: blur(20px); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); padding: 12px 28px; border-radius: 100px; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 48px; backdrop-filter: blur(20px); }
     .hero-badge span { color: #c9a96e; }
     .hero h1 { font-size: 96px; font-weight: 100; letter-spacing: -0.04em; line-height: 1.0; margin-bottom: 32px; max-width: 900px; }
     .hero h1 em { font-style: normal; font-weight: 600; background: linear-gradient(135deg, #c9a96e 0%, #f5efe6 50%, #c9a96e 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 4s linear infinite; }
     @keyframes shimmer { to { background-position: 200% center; } }
     .hero p { font-size: 18px; color: rgba(255,255,255,0.4); max-width: 560px; line-height: 1.9; margin-bottom: 56px; font-weight: 300; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 14px; background: #fff; color: #050508; padding: 20px 48px; border-radius: 100px; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 14px; background: #fff; color: #050508; padding: 20px 48px; border-radius: 100px; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.5s; }
     .hero-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 60px rgba(255,255,255,0.15); }
+    .hero-cta-outline { display: inline-flex; align-items: center; gap: 14px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.15); padding: 20px 48px; border-radius: 100px; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.5s; }
+    .hero-cta-outline:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3); }
     .scroll-indicator { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.3); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
     .scroll-line { width: 1px; height: 60px; background: linear-gradient(rgba(255,255,255,0.3), transparent); animation: scrollPulse 2s infinite; }
     @keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-    
     .section-label { font-size: 10px; color: #c9a96e; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 20px; text-align: center; }
     .section-title { font-size: 64px; font-weight: 100; text-align: center; margin-bottom: 100px; letter-spacing: -0.03em; }
     .section-title strong { font-weight: 600; }
-    
     .products { padding: 140px 40px; max-width: 1500px; margin: 0 auto; }
-    
     .product-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 2px; background: rgba(255,255,255,0.01); border-radius: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.03); transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); cursor: pointer; }
     .product-row:hover { border-color: rgba(201, 169, 110, 0.15); transform: translateY(-8px); box-shadow: 0 40px 80px rgba(0,0,0,0.4); }
     .product-row.reverse { direction: rtl; }
     .product-row.reverse > * { direction: ltr; }
-    
     .product-img { height: 520px; overflow: hidden; position: relative; }
     .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1); filter: brightness(0.8); }
     .product-row:hover .product-img img { transform: scale(1.06); filter: brightness(1); }
     .product-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.3), transparent); }
-    
     .product-info { padding: 72px; display: flex; flex-direction: column; justify-content: center; }
     .product-tag { font-size: 10px; color: #c9a96e; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 24px; }
     .product-info h2 { font-size: 44px; font-weight: 200; margin-bottom: 20px; letter-spacing: -0.02em; line-height: 1.15; }
     .product-info h2 strong { font-weight: 600; }
     .product-info .desc { font-size: 16px; color: rgba(255,255,255,0.45); line-height: 1.9; margin-bottom: 36px; font-weight: 300; }
     .product-price { font-size: 36px; font-weight: 200; color: #c9a96e; margin-bottom: 40px; }
-    .product-btn { display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 16px 36px; border-radius: 100px; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.4s; width: fit-content; }
-    .product-btn:hover { background: #fff; color: #050508; border-color: #fff; }
-    
+    .product-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .product-btn { display: inline-flex; align-items: center; gap: 12px; background: #fff; color: #050508; padding: 16px 36px; border-radius: 100px; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.4s; }
+    .product-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,255,255,0.15); }
+    .product-btn-outline { display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 16px 36px; border-radius: 100px; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.4s; }
+    .product-btn-outline:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3); }
+    .features { padding: 160px 40px; }
+    .features-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .feature-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 24px; padding: 48px; transition: all 0.4s; }
+    .feature-card:hover { border-color: rgba(201, 169, 110, 0.15); transform: translateY(-8px); }
+    .feature-icon { width: 56px; height: 56px; background: rgba(201, 169, 110, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
+    .feature-icon svg { width: 24px; height: 24px; stroke: #c9a96e; }
+    .feature-card h3 { font-size: 20px; font-weight: 400; margin-bottom: 14px; }
+    .feature-card p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.8; font-weight: 300; }
+    .testimonials { padding: 160px 40px; }
+    .testimonials-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .testimonial-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 24px; padding: 48px; }
+    .testimonial-stars { color: #c9a96e; font-size: 14px; margin-bottom: 24px; letter-spacing: 4px; }
+    .testimonial-card p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.9; margin-bottom: 32px; font-weight: 300; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 16px; }
+    .testimonial-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(201, 169, 110, 0.3); }
+    .testimonial-name { font-size: 15px; font-weight: 500; }
+    .testimonial-role { font-size: 13px; color: rgba(255,255,255,0.35); }
     .cta { padding: 200px 40px; text-align: center; }
     .cta h2 { font-size: 72px; font-weight: 100; margin-bottom: 24px; letter-spacing: -0.03em; }
     .cta h2 strong { font-weight: 600; }
     .cta p { font-size: 18px; color: rgba(255,255,255,0.35); margin-bottom: 56px; font-weight: 300; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .cta-btn { display: inline-flex; align-items: center; gap: 14px; background: linear-gradient(135deg, #c9a96e, #b8943f); color: #050508; padding: 22px 56px; border-radius: 100px; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.5s; box-shadow: 0 12px 48px rgba(201, 169, 110, 0.25); }
     .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(201, 169, 110, 0.35); }
-    
+    .cta-btn-outline { display: inline-flex; align-items: center; gap: 14px; border: 1px solid rgba(201, 169, 110, 0.3); color: #c9a96e; padding: 22px 56px; border-radius: 100px; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.5s; }
+    .cta-btn-outline:hover { background: rgba(201, 169, 110, 0.08); }
     .footer { padding: 80px 40px; border-top: 1px solid rgba(255,255,255,0.04); }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .footer-brand { font-size: 20px; font-weight: 200; letter-spacing: -0.01em; }
+    .footer-brand { font-size: 20px; font-weight: 200; }
     .footer-brand strong { font-weight: 600; }
     .footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
     .footer a { color: #c9a96e; text-decoration: none; }
-    
     .detail { display: none; position: fixed; inset: 0; background: rgba(5,5,8,0.98); z-index: 1000; overflow-y: auto; backdrop-filter: blur(30px); }
     .detail.active { display: block; }
     .detail-close { position: fixed; top: 40px; right: 40px; width: 60px; height: 60px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 50%; color: #fff; font-size: 22px; cursor: pointer; z-index: 1001; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
@@ -88,15 +104,18 @@
     .feature-row:hover { background: rgba(201, 169, 110, 0.03); border-color: rgba(201, 169, 110, 0.08); }
     .feature-dot { width: 8px; height: 8px; background: #c9a96e; border-radius: 50%; flex-shrink: 0; }
     .feature-row span { font-size: 15px; color: rgba(255,255,255,0.5); font-weight: 300; }
+    .detail-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
     .detail-buy { display: inline-flex; align-items: center; gap: 14px; background: linear-gradient(135deg, #c9a96e, #b8943f); color: #050508; padding: 22px 56px; border-radius: 100px; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.5s; box-shadow: 0 12px 48px rgba(201, 169, 110, 0.25); }
     .detail-buy:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(201, 169, 110, 0.35); }
-    
+    .detail-back { display: inline-flex; align-items: center; gap: 14px; border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 22px 56px; border-radius: 100px; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.5s; cursor: pointer; background: transparent; }
+    .detail-back:hover { background: rgba(255,255,255,0.05); }
     @media (max-width: 900px) {
       .hero h1 { font-size: 48px; }
       .product-row { grid-template-columns: 1fr; }
       .product-row.reverse { direction: ltr; }
       .product-img { height: 320px; }
       .product-info { padding: 48px; }
+      .features-grid, .testimonials-grid { grid-template-columns: 1fr; }
       .section-title, .cta h2 { font-size: 40px; }
       .detail-body h1 { font-size: 40px; }
     }
@@ -104,161 +123,208 @@
 </head>
 <body>
   <canvas id="bg-canvas"></canvas>
-  
   <div class="content">
     <section class="hero">
-      <div class="hero-badge">✦ <span>DigitalDropX</span></div>
+      <div class="hero-badge">✦ <span>LAHCEN Store</span></div>
       <h1>Premium digital products for <em>modern creators</em></h1>
-      <p>Professional tools and guides designed to help entrepreneurs launch faster and grow smarter. No subscriptions. No fluff. Just results that matter.</p>
-      <a href="#products" class="hero-cta">Explore Products →</a>
+      <p>Professional templates and guides designed to help entrepreneurs launch faster and convert more visitors into customers. No subscriptions. No fluff. Just results.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="hero-cta">Explore Collection →</a>
+        <a href="https://beacons.ai/digitaldropsx" target="_blank" class="hero-cta-outline">Visit Beacons</a>
+      </div>
       <div class="scroll-indicator">
         <div class="scroll-line"></div>
         Scroll
       </div>
     </section>
-    
+
     <section class="products" id="products">
       <div class="section-label">Collection</div>
-      <h2 class="section-title">Curated for <strong>success</strong></h2>
-      
+      <h2 class="section-title">Built for <strong>entrepreneurs</strong></h2>
       <div class="product-row" onclick="openDetail('json')">
         <div class="product-img">
           <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&h=600&fit=crop" alt="JSON Integration System">
         </div>
         <div class="product-info">
-          <div class="product-tag">Integration</div>
+          <div class="product-tag">Template</div>
           <h2><strong>JSON</strong> Integration System</h2>
-          <p class="desc">Connect your systems, sync data, and eliminate duplicate accounts with a single JSON file. No code required. One purchase, lifetime access.</p>
+          <p class="desc">Professional integration template for modern businesses. Clean JSON structure, responsive design, and easy customization. Perfect for developers and businesses who need reliable, scalable data management solutions.</p>
           <div class="product-price">$25</div>
-          <span class="product-btn">View Details →</span>
+          <div class="product-buttons">
+            <span class="product-btn">View Details →</span>
+            <a href="https://beacons.ai/digitaldropsx" target="_blank" class="product-btn-outline" onclick="event.stopPropagation()">Buy Now</a>
+          </div>
         </div>
       </div>
-      
       <div class="product-row reverse" onclick="openDetail('zero')">
         <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=600&fit=crop" alt="Zero to First Sale">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&h=600&fit=crop" alt="Zero to First Sale">
         </div>
         <div class="product-info">
           <div class="product-tag">Guide</div>
-          <h2><strong>Zero to</strong> First Sale</h2>
-          <p class="desc">Beginner's guide to creating digital products that actually sell. From idea to first customer in days. Real strategies, real results.</p>
+          <h2><strong>Zero to First</strong> Sale</h2>
+          <p class="desc">Step-by-step guide to getting your first sale. From product research to marketing strategies, this guide covers everything you need to launch successfully and start generating revenue.</p>
           <div class="product-price">$20</div>
-          <span class="product-btn">View Details →</span>
+          <div class="product-buttons">
+            <span class="product-btn">View Details →</span>
+            <a href="https://beacons.ai/digitaldropsx" target="_blank" class="product-btn-outline" onclick="event.stopPropagation()">Buy Now</a>
+          </div>
         </div>
       </div>
     </section>
-    
-    <section class="cta">
-      <h2>Ready to <strong>start</strong>?</h2>
-      <p>Join 2,500+ entrepreneurs who trust DigitalDropX.</p>
-      <a href="#products" class="cta-btn">Explore Products →</a>
+
+    <section class="features" id="features">
+      <div class="section-label">Why LAHCEN Store</div>
+      <h2 class="section-title">Designed to <strong>convert</strong></h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h3>Instant Download</h3>
+          <p>Get your templates immediately after purchase. No waiting. Start building right away.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Professional Quality</h3>
+          <p>Crafted for results. Every pixel is intentional and every feature serves a purpose.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+          <h3>Easy Customization</h3>
+          <p>Change colors, text, images in minutes. No coding required.</p>
+        </div>
+      </div>
     </section>
-    
+
+    <section class="testimonials">
+      <div class="section-label">Reviews</div>
+      <h2 class="section-title">Loved by <strong>entrepreneurs</strong></h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+          <p>"These templates saved me weeks of work. The quality is exceptional and the designs are truly professional."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sarah" class="testimonial-avatar">
+            <div>
+              <div class="testimonial-name">Sarah Chen</div>
+              <div class="testimonial-role">Marketing Director</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+          <p>"The integration system helped me launch my product in just 2 days. The step-by-step approach made it easy."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Marcus" class="testimonial-avatar">
+            <div>
+              <div class="testimonial-name">Marcus Johnson</div>
+              <div class="testimonial-role">Founder, TechStart</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to <strong>elevate</strong>?</h2>
+      <p>Join entrepreneurs who trust LAHCEN Store.</p>
+      <div class="cta-buttons">
+        <a href="#products" class="cta-btn">Explore Products →</a>
+        <a href="https://beacons.ai/digitaldropsx" target="_blank" class="cta-btn-outline">Visit Beacons</a>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="footer-inner">
-        <div class="footer-brand">Digital<strong>DropX</strong></div>
-        <p>© 2026 DigitalDropX. All rights reserved.</p>
+        <div class="footer-brand">LAHCEN <strong>Store</strong></div>
+        <p>© 2026 LAHCEN Store. All rights reserved.</p>
       </div>
     </footer>
   </div>
-  
-  <!-- JSON System Detail -->
+
   <div class="detail" id="detail-json">
     <button class="detail-close" onclick="closeDetail('json')">✕</button>
     <div class="detail-hero"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&h=700&fit=crop" alt="JSON Integration System"></div>
     <div class="detail-body">
-      <div class="detail-tag">Integration System</div>
+      <div class="detail-tag">Integration Template</div>
       <h1>JSON Integration System</h1>
-      <div class="price">$25</div>
-      <p class="desc">Stop paying monthly for tools that don't talk to each other. This single JSON file connects your entire tech stack, syncs data in real-time, and eliminates the headache of duplicate accounts. One purchase, lifetime access, zero coding required. Perfect for small businesses and creators who want to automate their workflow without hiring developers.</p>
+      <div class="price">$25 <span style="font-size:18px;color:rgba(255,255,255,0.25);text-decoration:line-through;margin-left:16px;font-weight:300">$40</span></div>
+      <p class="desc">Professional integration template for modern businesses. Clean JSON structure, responsive design, and easy customization. Perfect for developers and businesses who need reliable, scalable data management solutions. Includes documentation, examples, and support.</p>
       <div class="detail-features">
         <h3>What's Included</h3>
-        <div class="feature-row"><div class="feature-dot"></div><span>Complete JSON configuration file with documentation</span></div>
-        <div class="feature-row"><div class="feature-dot"></div><span>Step-by-step setup guide with screenshots</span></div>
-        <div class="feature-row"><div class="feature-dot"></div><span>Multi-platform sync templates for popular tools</span></div>
-        <div class="feature-row"><div class="feature-dot"></div><span>Duplicate account elimination logic built-in</span></div>
-        <div class="feature-row"><div class="feature-dot"></div><span>Free updates for life as new platforms are added</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Clean, well-structured JSON templates</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Responsive design for all devices</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Easy customization and setup</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Complete documentation and examples</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Scalable architecture for growth</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Free updates and support</span></div>
       </div>
-      <a href="https://beacons.ai/digitaldropsx" target="_blank" class="detail-buy">Get It Now →</a>
+      <div class="detail-buttons">
+        <a href="https://beacons.ai/digitaldropsx" target="_blank" class="detail-buy">Purchase Now →</a>
+        <button class="detail-back" onclick="closeDetail('json')">Back to Products</button>
+      </div>
     </div>
   </div>
-  
-  <!-- Zero to First Sale Detail -->
+
   <div class="detail" id="detail-zero">
     <button class="detail-close" onclick="closeDetail('zero')">✕</button>
-    <div class="detail-hero"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=700&fit=crop" alt="Zero to First Sale"></div>
+    <div class="detail-hero"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&h=700&fit=crop" alt="Zero to First Sale"></div>
     <div class="detail-body">
-      <div class="detail-tag">Beginner's Guide</div>
+      <div class="detail-tag">Sales Guide</div>
       <h1>Zero to First Sale</h1>
-      <div class="price">$20</div>
-      <p class="desc">The complete roadmap for creating digital products that actually sell. No experience needed. Follow the steps, launch your product, and watch your first sale come in. Real strategies, real results, real fast. Perfect for anyone who wants to start earning from digital products but doesn't know where to begin.</p>
+      <div class="price">$20 <span style="font-size:18px;color:rgba(255,255,255,0.25);text-decoration:line-through;margin-left:16px;font-weight:300">$35</span></div>
+      <p class="desc">Step-by-step guide to getting your first sale. From product research to marketing strategies, this guide covers everything you need to launch successfully and start generating revenue. Real case studies, actionable checklists, and templates you can use immediately.</p>
       <div class="detail-features">
         <h3>What's Inside</h3>
-        <div class="feature-row"><div class="feature-dot"></div><span>Finding profitable product ideas that sell</span></div>
-        <div class="feature-row"><div class="feature-dot"></div><span>Creating your product in 24 hours or less</span></div>
-        <div class="feature-row"><div class="feature-dot"></div><span>Pricing strategies that convert browsers to buyers</span></div>
-        <div class="feature-row"><div class="feature-dot"></div><span>Launch checklist and ready-to-use templates</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Product research methodology</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Marketing strategies that work</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Pricing strategies for maximum profit</span></div>
         <div class="feature-row"><div class="feature-dot"></div><span>Real case studies with proven results</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Actionable checklists and templates</span></div>
+        <div class="feature-row"><div class="feature-dot"></div><span>Free updates for life</span></div>
       </div>
-      <a href="https://beacons.ai/digitaldropsx" target="_blank" class="detail-buy">Get It Now →</a>
+      <div class="detail-buttons">
+        <a href="https://beacons.ai/digitaldropsx" target="_blank" class="detail-buy">Purchase Now →</a>
+        <button class="detail-back" onclick="closeDetail('zero')">Back to Products</button>
+      </div>
     </div>
   </div>
-  
+
   <script>
     const canvas = document.getElementById('bg-canvas');
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 30;
-    
     const particlesGeometry = new THREE.BufferGeometry();
-    const count = 1500;
+    const count = 2000;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    
     for (let i = 0; i < count * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 100;
+      positions[i] = (Math.random() - 0.5) * 120;
       colors[i] = Math.random() * 0.3 + 0.7;
     }
-    
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-    
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.08,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.6,
-      blending: THREE.AdditiveBlending
-    });
-    
+    const particlesMaterial = new THREE.PointsMaterial({ size: 0.08, vertexColors: true, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
-    
     const rings = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const ringGeometry = new THREE.TorusGeometry(8 + i * 4, 0.02, 16, 100);
-      const ringMaterial = new THREE.MeshBasicMaterial({ 
-        color: 0xc9a96e, 
-        transparent: true, 
-        opacity: 0.08 - i * 0.01 
-      });
+      const ringMaterial = new THREE.MeshBasicMaterial({ color: 0xc9a96e, transparent: true, opacity: 0.08 - i * 0.01 });
       const ring = new THREE.Mesh(ringGeometry, ringMaterial);
       ring.rotation.x = Math.random() * Math.PI;
       ring.rotation.y = Math.random() * Math.PI;
       scene.add(ring);
       rings.push(ring);
     }
-    
     let mouseX = 0, mouseY = 0;
     document.addEventListener('mousemove', (e) => {
       mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
       mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
     });
-    
     function animate() {
       requestAnimationFrame(animate);
       particles.rotation.y += 0.0003;
@@ -273,13 +339,11 @@
       renderer.render(scene, camera);
     }
     animate();
-    
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
-    
     function openDetail(id) {
       document.getElementById('detail-' + id).classList.add('active');
       document.body.style.overflow = 'hidden';
