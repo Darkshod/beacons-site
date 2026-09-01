@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DigitalDropX — Premium Digital Products</title>
+  <meta name="description" content="Premium digital products, templates, and guides for entrepreneurs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --fg: #ffffff;
+      --muted: #888888;
+      --border: #1a1a1a;
+      --surface: #111111;
+      --gold: #c9a96e;
+      --gold-light: #f5efe6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    
+    /* Hero */
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(201, 169, 110, 0.08) 0%, transparent 70%); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 100px; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 40px; }
+    .hero h1 { font-size: 80px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.0; margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 400px; line-height: 1.7; margin-bottom: 48px; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--fg); color: var(--fg); padding: 16px 32px; border-radius: 100px; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s; }
+    .hero-cta:hover { background: var(--fg); color: var(--bg); }
+    .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); color: var(--muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+    
+    /* Products */
+    .products { padding: 120px 40px; max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 80px; }
+    .section-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-size: 48px; font-weight: 400; letter-spacing: -0.02em; }
+    .section-title em { font-style: italic; color: var(--gold); }
+    
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .product { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: transform 0.4s, border-color 0.4s; }
+    .product:hover { transform: translateY(-8px); border-color: var(--gold); }
+    .product-img { height: 320px; overflow: hidden; position: relative; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+    .product:hover .product-img img { transform: scale(1.08); }
+    .product-overlay { position: absolute; top: 16px; right: 16px; background: var(--gold); color: var(--bg); padding: 6px 12px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; }
+    .product-body { padding: 32px; }
+    .product-category { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .product h3 { font-size: 24px; font-weight: 400; margin-bottom: 12px; }
+    .product p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+    .product-footer { display: flex; justify-content: space-between; align-items: center; }
+    .product-price { font-size: 28px; font-weight: 300; }
+    .product-price span { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-left: 8px; }
+    .product-btn { border: 1px solid var(--fg); color: var(--fg); padding: 10px 24px; border-radius: 100px; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s; }
+    .product-btn:hover { background: var(--fg); color: var(--bg); }
+    
+    /* About */
+    .about { padding: 120px 40px; background: var(--surface); }
+    .about-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .about h2 { font-size: 48px; font-weight: 400; margin-bottom: 24px; }
+    .about h2 em { font-style: italic; color: var(--gold); }
+    .about p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+    
+    /* Testimonials */
+    .testimonials { padding: 120px 40px; max-width: 1200px; margin: 0 auto; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .testimonial { padding: 40px; border: 1px solid var(--border); border-radius: 16px; }
+    .testimonial-stars { color: var(--gold); margin-bottom: 20px; letter-spacing: 4px; font-size: 14px; }
+    .testimonial p { font-size: 15px; line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    .testimonial-name { font-size: 14px; font-weight: 500; }
+    .testimonial-role { font-size: 12px; color: var(--muted); }
+    
+    /* CTA */
+    .cta { padding: 160px 40px; text-align: center; position: relative; }
+    .cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(201, 169, 110, 0.05) 0%, transparent 70%); }
+    .cta h2 { font-size: 56px; font-weight: 400; margin-bottom: 16px; position: relative; }
+    .cta h2 em { font-style: italic; color: var(--gold); }
+    .cta p { font-size: 16px; color: var(--muted); margin-bottom: 40px; position: relative; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--gold); color: var(--bg); padding: 18px 36px; border-radius: 100px; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; position: relative; transition: transform 0.3s; }
+    .cta-btn:hover { transform: translateY(-2px); }
+    
+    /* Footer */
+    .footer { padding: 60px 40px; border-top: 1px solid var(--border); text-align: center; }
+    .footer-brand { font-size: 24px; font-weight: 400; margin-bottom: 16px; }
+    .footer-brand em { font-style: italic; color: var(--gold); }
+    .footer p { font-size: 13px; color: var(--muted); }
+    .footer a { color: var(--gold); text-decoration: none; }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 48px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-badge">DigitalDropX</div>
+    <h1 class="serif">Premium <em>digital</em> products</h1>
+    <p>Professional templates and guides crafted for modern entrepreneurs. Elevate your business with tools designed to convert.</p>
+    <a href="#products" class="hero-cta">Explore Collection</a>
+    <div class="scroll-indicator">Scroll to explore</div>
+  </section>
+  
+  <section class="products" id="products">
+    <div class="section-header">
+      <div class="section-tag">Collection</div>
+      <h2 class="section-title serif">Curated for <em>success</em></h2>
+    </div>
+    <div class="products-grid">
+      <article class="product">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop" alt="AI Prompt Mastery" loading="lazy">
+          <div class="product-overlay">Best Seller</div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">AI & Automation</div>
+          <h3 class="serif">AI Prompt Mastery</h3>
+          <p>The complete guide to writing prompts that produce professional results. 150+ pages, 50+ templates.</p>
+          <div class="product-footer">
+            <div class="product-price">$29 <span>$49</span></div>
+            <a href="https://www.paypal.me/Blackrock352" target="_blank" class="product-btn">Purchase</a>
+          </div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="SEO Blueprint" loading="lazy">
+          <div class="product-overlay">Popular</div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Marketing</div>
+          <h3 class="serif">SEO Blueprint</h3>
+          <p>Step-by-step guide to ranking #1 on Google. Keyword research, on-page, link building strategies.</p>
+          <div class="product-footer">
+            <div class="product-price">$39 <span>$59</span></div>
+            <a href="https://www.paypal.me/Blackrock352" target="_blank" class="product-btn">Purchase</a>
+          </div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Analytics Dashboard" loading="lazy">
+        </div>
+        <div class="product-body">
+          <div class="product-category">Templates</div>
+          <h3 class="serif">Analytics Dashboard</h3>
+          <p>Professional dashboard template with KPI cards, charts, and data visualization components.</p>
+          <div class="product-footer">
+            <div class="product-price">$29 <span>$49</span></div>
+            <a href="https://www.paypal.me/Blackrock352" target="_blank" class="product-btn">Purchase</a>
+          </div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" alt="Business Templates" loading="lazy">
+        </div>
+        <div class="product-body">
+          <div class="product-category">Business</div>
+          <h3 class="serif">Business Template Pack</h3>
+          <p>Invoice, proposal, and contract templates. Professional documents for your business.</p>
+          <div class="product-footer">
+            <div class="product-price">$19 <span>$39</span></div>
+            <a href="https://www.paypal.me/Blackrock352" target="_blank" class="product-btn">Purchase</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  
+  <section class="about">
+    <div class="about-inner">
+      <div class="section-tag">About</div>
+      <h2 class="serif">Crafted with <em>passion</em></h2>
+      <p>Every template at DigitalDropX is designed with attention to detail. We believe that professional tools should be accessible to every entrepreneur, not just those with big budgets.</p>
+      <p>Our products are built to convert visitors into customers, save you time, and help you grow your business with confidence.</p>
+    </div>
+  </section>
+  
+  <section class="testimonials">
+    <div class="section-header">
+      <div class="section-tag">Reviews</div>
+      <h2 class="section-title serif">Trusted by <em>entrepreneurs</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p>"The quality of these templates is exceptional. They've saved me weeks of work and the designs are truly premium."</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sarah" class="testimonial-avatar" loading="lazy">
+          <div>
+            <div class="testimonial-name">Sarah Chen</div>
+            <div class="testimonial-role">Marketing Director</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p>"Finally, templates that look premium without the premium price tag. My clients love the new designs."</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Marcus" class="testimonial-avatar" loading="lazy">
+          <div>
+            <div class="testimonial-name">Marcus Johnson</div>
+            <div class="testimonial-role">Founder, TechStart</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p>"The SEO blueprint helped me rank #1 for my target keyword in just 3 months. Worth every penny."</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Elena" class="testimonial-avatar" loading="lazy">
+          <div>
+            <div class="testimonial-name">Elena Rodriguez</div>
+            <div class="testimonial-role">Freelance Designer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <h2 class="serif">Ready to <em>elevate</em>?</h2>
+    <p>Join 2,500+ entrepreneurs who trust DigitalDropX.</p>
+    <a href="#products" class="cta-btn">Explore Products</a>
+  </section>
+  
+  <footer class="footer">
+    <div class="footer-brand serif">Digital<em>DropX</em></div>
+    <p>© 2026 DigitalDropX. All rights reserved. | <a href="https://www.paypal.me/Blackrock352" target="_blank">Store</a></p>
+  </footer>
+</body>
+</html>
